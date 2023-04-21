@@ -43,7 +43,7 @@
   git push
   ```
 
-  - new blog
+- new blog
   ```
   hugo new post/<filename>/index.md   # easy to insert image wiht Typora
   # or
