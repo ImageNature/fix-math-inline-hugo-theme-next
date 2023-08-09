@@ -1,35 +1,31 @@
+<!-->
 {{ if .Site.Params.creativeCommons.post }}
-<div class="post-copyright" style="font-size: 12px; line-height: 1.6">
-  <ul>
-    <li class="post-copyright-title">
-      <strong>{{ print (T "PostCopyRight.title") (T "Symbol.colon") }}</strong>
-      {{ .Title }}
-    </li>
-    <li class="post-copyright-author">
-      {{ if isset .Params "author" }}
-        <strong>{{ print (T "PostCopyRight.origin.author") (T "Symbol.colon") }} </strong>
-        {{ .Params.Author }}
-      {{ else }}
-        <strong>{{ print (T "PostCopyRight.author") (T "Symbol.colon") }} </strong>
-        {{ .Site.Params.author }}
-      {{ end }}
-    </li>
-    <li class="post-copyright-link">
-      {{ if isset .Params "link" }}
-        <strong>{{ print (T "PostCopyRight.origin.link") (T "Symbol.colon") }} </strong>
-        <a target="_blank" href="{{ .Params.OriginLink }}" title="{{ .Title }}">{{ .Params.Link }}</a>
-      {{ else }} 
-        <strong>{{ print (T "PostCopyRight.link") (T "Symbol.colon") }}</strong>
-        <a id="post-cr-link" href="{{ .Permalink | absLangURL }}" title="{{ .Title }}">{{ .Permalink | absLangURL }}</a>
-      {{ end }}
-    </li>
-    <li class="post-copyright-license">
+<div class="post-copyright" style="font-family: 'KaiTi'; font-size: 12px; line-height: 1.6; border-left:none;">
+<ul style="height: auto; overflow-y: auto; list-style-type: none; padding-left: 0;">
+
+  <li>
+    <strong>{{ print (T "PostCopyRight.license.title") (T "Symbol.colon") }} </strong>
+     若无特殊声明,本站所有文章均按照 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 协议</a>发布。
+  </li>
+
+ <li class="post-copyright-license">
       <strong>{{ print (T "PostCopyRight.license.title") (T "Symbol.colon") }} </strong>
       {{ $ccText := .Site.Params.creativeCommons.license | upper }}
       {{ $ccLink := printf "<a target='_blank' href='https://creativecommons.org/licenses/by-nc-sa/4.0/deed.%s'>%s</a>" (substr .Site.LanguageCode 0 2) $ccText }}
       {{ printf (T "PostCopyRight.license.content") $ccLink | safeHTML }}
     </li>
+
 </div>
 {{ end }}
+</!-->
 
 
+
+{{ if .Site.Params.creativeCommons.post }}
+<div class="my-post-copyright" style="font-family: 'KaiTi'; font-size: 14px; line-height: 1.6; border-left:none;">
+  <li>
+    <strong>{{ print (T "PostCopyRight.license.title") (T "Symbol.colon") }} </strong>
+     若无特殊声明,本站所有文章均按照 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 协议</a>发布。
+  </li>
+</div>
+{{ end }}

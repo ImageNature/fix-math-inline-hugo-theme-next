@@ -1,0 +1,57 @@
+.tag-cloud {
+  text-align: center;
+  min-height: 700px;
+
+  .tag-cloud-title {
+    text-align: center;
+    font-size: 1.35em;
+
+    .tag-list-count {
+      font-size: 0.56em;
+    }
+  }
+
+  .tag-cloud-tags {
+    margin-top: 40px;
+  }
+
+  a {
+    display: inline-block;
+    margin: 10px;
+  }
+}
+
+@for $tag-cloud from 0 through 10 {
+  $tag-cloud-color : mix($tag-cloud-end, $tag-cloud-start, $tag-cloud * 10);
+  .tag-cloud-#{$tag-cloud} {
+    border-bottom-color: $tag-cloud-color;
+    color: $tag-cloud-color;
+    font-size: #{0.85+($tag-cloud * 0.05)}em
+  }
+}
+
+
+@if $darkmode {
+  @media (prefers-color-scheme: dark) {
+    .tag-cloud-0,
+    .tag-cloud-1,
+    .tag-cloud-2,
+    .tag-cloud-3,
+    .tag-cloud-4,
+    .tag-cloud-5,
+    .tag-cloud-5,
+    .tag-cloud-6,
+    .tag-cloud-7,
+    .tag-cloud-8,
+    .tag-cloud-9,
+    .tag-cloud-10 {
+      border-bottom-color: white;
+      color: white;
+}
+ @for $tag-cloud from 0 through 10 {
+      .tag-cloud-#{$tag-cloud} {
+        font-size: #{0.85+($tag-cloud * 0.05)}em; 
+      } 
+    }
+  }
+}
